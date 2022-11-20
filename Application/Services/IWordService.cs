@@ -5,5 +5,5 @@ namespace Application.Services;
 
 public interface IWordService
 {
-    Task<FileStreamResult> UpdateWordDocument(IFormFile document, CancellationToken cancellationToken);
+    Task<Stream> UpdateWordDocument(IFormFile document, CancellationToken cancellationToken);
 }
