@@ -1,3 +1,6 @@
+using System.Reflection;
+using Application.Services;
+using MediatR;
 using Microsoft.OpenApi.Models;
 
 namespace API;
@@ -16,6 +19,9 @@ public class Startup
     {
 
         services.AddControllers();
+        services.AddMediatR(typeof(Startup));
+        services.AddAutoMapper(Assembly.GetExecutingAssembly());
+        services.AddInnerServices();
         services.AddSwaggerGen(c =>
         {
             c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIv5", Version = "v1" });
