@@ -17,7 +17,7 @@ public class GetWordCountHandler : IRequestHandler<GetWordCountRequest, Response
     {
         try
         {
-            var result = await _wordService.GetWordCount(cancellationToken);
+            var result = await _wordService.UpdateWordDocument(request.Document, cancellationToken);
             return Response.Ok(request.Id, result);
         }
         catch (Exception e)

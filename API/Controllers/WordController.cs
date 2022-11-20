@@ -1,8 +1,10 @@
 ﻿using System.Net;
+using API.BaseRequestHandling;
 using API.Extensions;
 using API.RequestHandling.Requests;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Net.Http.Headers;
 
 namespace API.Controllers;
 
@@ -20,10 +22,9 @@ public class WordController : ControllerBase
     }
 
     [HttpGet("word-count")]
-    [ProducesResponseType(typeof(int), (int)HttpStatusCode.OK)]
-    public async Task<IActionResult> GetWordCount(CancellationToken cancellationToken)
+    public async Task<IActionResult> GetWordCount([FromForm] IFormFile file, CancellationToken cancellationToken)
     {
-        var result = await _mediator.Send(new GetWordCountRequest(), cancellationToken);
+        var result = await _mediator.Send(new GetWordCountRequest(file), cancellationToken);
         return result.AsAspNetCoreResult();
     }
 }

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using API.Extensions;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Extensions;
+namespace API.BaseRequestHandling;
 
 public static class ResponseExtensions
 {

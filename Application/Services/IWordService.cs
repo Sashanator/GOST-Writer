@@ -1,6 +1,9 @@
-﻿namespace Application.Services;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Application.Services;
 
 public interface IWordService
 {
-    Task<int> GetWordCount(CancellationToken cancellationToken);
+    Task<FileStreamResult> UpdateWordDocument(IFormFile document, CancellationToken cancellationToken);
 }
