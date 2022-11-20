@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Application.Tools;
 using Microsoft.AspNetCore.Http;
 using Xceed.Document.NET;
 using Xceed.Words.NET;
@@ -15,28 +16,16 @@ public class WordService : IWordService
         var ms = new MemoryStream();
         document.CopyTo(ms);
         var wordDocument = DocX.Load(ms);
-        ApllyGOST(wordDocument);
-        var stream = typeof(DocX).GetField("_memoryStream", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(wordDocument);
-
-        return Task.FromResult(stream as Stream);
+        var gost = new GOST(wordDocument);
+        gost.ApllyGOST();
+        var stream = GetDocumentStream(wordDocument);
+        return Task.FromResult(stream);
     }
 
-    private void ApllyGOST(DocX document)
+    private Stream GetDocumentStream(DocX document)
     {
-        document.MarginTop = 30;
-        document.MarginBottom = 0;
-        document.MarginLeft = 20;
-        document.MarginRight = 10;
-
-        foreach (var paragraph in document.Paragraphs)
-        {
-            paragraph.
-                Font("Times New Roman").
-                FontSize(14);
-
-            paragraph.Alignment = Alignment.both;
-            paragraph.LineSpacing = (float)15;
-        }
-        document.Save();
+        return document.GetType().
+            GetField("_memoryStream", BindingFlags.NonPublic | BindingFlags.Instance).
+            GetValue(document) as Stream;
     }
 }
