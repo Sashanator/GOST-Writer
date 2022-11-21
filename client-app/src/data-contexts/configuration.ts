@@ -1,0 +1,1 @@
+export const WORD_SERVICE = 'https://localhost:5001/';

@@ -19,12 +19,12 @@ public class WordController : ControllerBase
     }
 
     [HttpPost("format-document")]
-    public async Task<IActionResult> FormatDocument([FromForm] IFormFile file, CancellationToken cancellationToken)
+    public async Task<IActionResult> FormatDocument([FromForm] IFormFile doc, CancellationToken cancellationToken)
     {
         try
         {
-            var document = await _wordService.FormatWordDocument(file, cancellationToken);
-            var result = File((document as MemoryStream).ToArray(), "application/octet-stream", "HELLO.docx");
+            var document = await _wordService.FormatWordDocument(doc, cancellationToken);
+            var result = File((document as MemoryStream).ToArray(), "application/octet-stream");
             return result;
         }
         catch (Exception ex)

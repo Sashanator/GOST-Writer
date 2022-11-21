@@ -39,6 +39,7 @@ namespace Application.Tools
             ApplyDocumentProperties();
             ApplyCommonProperties();
             ApplyBasicSectionsProperies();
+            _document.Save();
         }
 
         private IList<Paragraph> GetBasicParagraphs()
