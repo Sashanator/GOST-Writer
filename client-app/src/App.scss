@@ -1,38 +1,347 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+html,
+body * {
+    box-sizing: border-box;
+    font-family: "Roboto";
+}
+
+body {
+    background: url("https://www.collegiateparent.com/wp-content/uploads/2021/02/4-reasons-college-students-struggle.png")
+        no-repeat center center fixed;
+    background-size: cover;
+}
+
+nav {
+    width: 100vw;
+    height: 80px;
+    margin-left: -8px;
+    margin-right: -8px;
+    margin-top: -8px;
+    background-color: white;
+    text-align: center;
+}
+
+nav ul li:hover > ul {
+    overflow: visible;
+    max-height: 1240px;
+    opacity: 1;
+}
+
+.gost_req {
+    text-align: center;
+    font-family: "Roboto";
+    color: white;
+}
+
+nav ul {
+    margin: auto;
+    list-style: none;
+    position: relative;
+    display: inline-table;
+}
+
+nav ul:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+nav ul li {
+    float: left;
+    height: 100%;
+    line-height: 80px;
+    font-size: 20;
+    transition: background 0.3s ease;
+}
+
+nav ul li:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+nav ul li:hover > a {
+    color: #fff;
+}
+
+nav ul li a {
+    display: block;
+    padding: 0 40px;
+    color: black;
+    text-decoration: none;
+}
+
+nav ul ul {
+    display: block;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    background: -webkit-linear-gradient(
+        rgba(35, 43, 85, 0.5),
+        rgba(35, 43, 85, 0.55)
+    );
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.55)
+    );
+    border-radius: 0px;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.2);
+}
+
+nav ul ul li {
+    float: none;
+    position: relative;
+}
+
+nav ul ul li a {
+    padding: 0 40px;
+    color: black;
+    transition: all 0.5s ease;
+    white-space: nowrap;
+}
+
+nav ul ul ul {
+    position: absolute;
+    left: 100%;
+    top: 0;
+}
+
+.jiggle {
+    text-align: center;
+    padding-top: 32px;
+    font-size: 57.6px;
+    font-weight: bold;
+    line-height: 64px;
+    font-family: "Roboto";
+    color: #ffffff;
+    position: relative;
+    font: "Roboto";
+}
+.jiggle:before {
+    content: "[";
+    left: -30px;
+    line-height: 64px;
+}
+.jiggle:after {
+    content: "]";
+    right: -30px;
+    line-height: 64px;
+}
+.jiggle:after,
+.jiggle:before {
+    font-family: "Roboto";
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 64px;
+    animation: 2s linear 0s normal none infinite opacity;
+    -webkit-animation: 2s ease-out 0s normal none infinite opacity;
+    -moz-animation: 2s ease-out 0s normal none infinite opacity;
+    -o-animation: 2s ease-out 0s normal none infinite opacity;
+}
+.visible {
+    float: left;
+    font-weight: 600;
+    overflow: hidden;
+    height: 64px;
+}
+.jiggle p {
+    display: inline;
+    float: left;
+    margin: 0;
+}
+.jiggle ul {
+    margin-top: 0;
+    padding-left: 284px;
+    text-align: left;
+    list-style: none;
+    animation: 6s linear 0s normal none infinite change;
+    -webkit-animation: 6s linear 0s normal none infinite change;
+    -moz-animation: 6s linear 0s normal none infinite change;
+    -o-animation: 6s linear 0s normal none infinite change;
+}
+.jiggle ul li {
+    line-height: 64px;
+    margin: 0;
+}
+
+.input-file {
+    position: relative;
+    display: inline-block;
+}
+.input-file-btn {
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    font-size: 32px;
+    // vertical-align: middle;
+    color: rgb(255 255 255);
+    text-align: center;
+    border-radius: 4px;
+    background-color: #0fb332;
+    line-height: 22px;
+    height: 80px;
+    padding: 30px 30px;
+    box-sizing: border-box;
+    border: none;
+    margin: 0;
+    transition: background-color 0.2s;
+}
+
+.input-file input[type="file"] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: block;
+    width: 0;
+    height: 0;
+}
+
+/* Focus */
+.input-file input[type="file"]:focus + .input-file-btn {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Hover/active */
+.input-file:hover .input-file-btn {
+    background-color: #59be6e;
+}
+.input-file:active .input-file-btn {
+    background-color: #2e703a;
+}
+
+/* Disabled */
+.input-file input[type="file"]:disabled + .input-file-btn {
+    background-color: #eee;
+}
+
+.drop_file_here {
+    font-family: "Roboto";
+    color: white;
+}
+
+@-webkit-keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@-webkit-keyframes change {
+    0% {
+        margin-top: 0;
+    }
+    15% {
+        margin-top: 0;
+    }
+    25% {
+        margin-top: -64px;
+    }
+    40% {
+        margin-top: -64px;
+    }
+    50% {
+        margin-top: -128px;
+    }
+    65% {
+        margin-top: -128px;
+    }
+    75% {
+        margin-top: -64px;
+    }
+    85% {
+        margin-top: -64px;
+    }
+    100% {
+        margin-top: 0;
+    }
+}
+@keyframes change {
+    0% {
+        margin-top: 0;
+    }
+    15% {
+        margin-top: 0;
+    }
+    25% {
+        margin-top: -64px;
+    }
+    40% {
+        margin-top: -64px;
+    }
+    50% {
+        margin-top: -128px;
+    }
+    65% {
+        margin-top: -128px;
+    }
+    75% {
+        margin-top: -64px;
+    }
+    85% {
+        margin-top: -64px;
+    }
+    100% {
+        margin-top: 0;
+    }
 }
