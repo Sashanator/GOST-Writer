@@ -21,6 +21,8 @@
 
   <ItemGroup>
     <Folder Include="RequestHandling\Dto\" />
+    <Folder Include="RequestHandling\Handlers\" />
+    <Folder Include="RequestHandling\Requests\" />
   </ItemGroup>
 
 </Project>

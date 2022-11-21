@@ -1,14 +1,13 @@
 ﻿using System.Reflection;
 using Application.Tools;
 using Microsoft.AspNetCore.Http;
-using Xceed.Document.NET;
 using Xceed.Words.NET;
 
 namespace Application.Services;
 
 public class WordService : IWordService
 {
-    public Task<Stream> UpdateWordDocument(IFormFile document, CancellationToken cancellationToken)
+    public Task<Stream> FormatWordDocument(IFormFile document, CancellationToken cancellationToken)
     {
         // Принять Word документ
         // Поменять весь шрифт на Times New Roman
