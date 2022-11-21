@@ -63,6 +63,7 @@ namespace Application.Tools
             AddPageNumeration();
             ApplyFootersProperies();
             ApplyHeadersProperies();
+            ReplaceEmptyWithPageBreak();
         }
 
         private void ApplyCommonProperties()
@@ -93,15 +94,41 @@ namespace Application.Tools
             _document.MarginBottom = CmToPt(bottom);
         }
 
+
+        private List<Paragraph> EmptyParagraphsSeries = new();
+        private void ReplaceEmptyWithPageBreak()
+        {
+            foreach(var paragraph in GetBasicParagraphs())
+            {
+                if (IsSectionStart(paragraph))
+                {
+                    EmptyParagraphsSeries.ForEach(p => _document.RemoveParagraph(p));
+                    EmptyParagraphsSeries.Clear();
+                    paragraph.InsertParagraphBeforeSelf("").InsertPageBreakBeforeSelf();
+                    continue;
+                }
+
+                if (IsText(paragraph.Text))
+                {
+                    EmptyParagraphsSeries.Clear();
+                }
+                else
+                {
+                    EmptyParagraphsSeries.Add(paragraph);
+                }                    
+            }
+        }
+
+
         private void ApplyBasicParagraphsProperties(Paragraph paragraph)
         {
             paragraph.FontSize(14);
             if (!IsHeader(paragraph))
                 paragraph.Alignment = Alignment.both;
 
-            if (IsSectionStart(paragraph))
+            if (paragraph.PreviousParagraph is not null && IsSectionStart(paragraph))
             {
-                paragraph.InsertPageBreakBeforeSelf();      
+                _document.RemoveParagraph(paragraph.PreviousParagraph);
             }                
 
             paragraph.SetLineSpacing(LineSpacingType.Line, LineToPt(1.5f));
