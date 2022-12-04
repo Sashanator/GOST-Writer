@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gost", "API\Gost.csproj", "{6D7B5F6C-B6A1-4A7E-839E-1CCAED6D96D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{6D7B5F6C-B6A1-4A7E-839E-1CCAED6D96D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gost.UnitTesting", "Gost.UnitTesting\Gost.UnitTesting.csproj", "{1334D64C-6E3E-4090-9594-9A3FBE06D50A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API.UnitTesting", "Gost.UnitTesting\API.UnitTesting.csproj", "{1334D64C-6E3E-4090-9594-9A3FBE06D50A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
