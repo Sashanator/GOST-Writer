@@ -13,7 +13,7 @@ public class GostServiceUnitTests
     [SetUp]
     public void Setup()
     {
-        _document = DocX.Load(Directory.GetParent(Environment.CurrentDirectory)?.Parent?.Parent + @"\Resources\testIn.docx");
+        _document = DocX.Load(Directory.GetParent(Environment.CurrentDirectory)?.Parent?.Parent + @"/Resources/testIn.docx");
         _gostService = new GostService();
     }
 

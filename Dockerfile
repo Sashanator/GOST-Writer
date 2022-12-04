@@ -15,8 +15,8 @@ WORKDIR /app
 RUN dotnet publish -c Release -o out
 
 # run tests
+WORKDIR /app
 RUN dotnet test
-ENTRYPOINT [ "dotnet", "test" ]
 
 # build a runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
