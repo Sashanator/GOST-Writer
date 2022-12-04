@@ -1,1 +1,1 @@
-export const WORD_SERVICE = 'https://localhost:5001/';
+export const WORD_SERVICE = process.env.REACT_APP_API_URL;

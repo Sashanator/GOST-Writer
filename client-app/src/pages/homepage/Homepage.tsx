@@ -27,13 +27,6 @@ export const Homepage: React.FC = () => {
     }
 
     return (
-        // <div className="App">
-        //     <form onSubmit={handleSubmit}>
-        //         <h1>React File Upload</h1>
-        //         <input type="file" onChange={handleChange} />
-        //         <button type="submit">Upload</button>
-        //     </form>
-        // </div>
         <div className="main_container">
             <div style={{paddingTop: "300px"}} className="jiggle">Оформление по ГОСТу</div>
             <div style={{paddingTop: "12px", fontSize: "20px"}} className="gost_req">
