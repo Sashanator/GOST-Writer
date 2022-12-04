@@ -33,7 +33,7 @@ public class GostService : IGostService
 
     public IList<Paragraph> GetBasicParagraphs(DocX document)
     {
-        bool isTitleEnded = false;
+        var isTitleEnded = false;
         var res = new List<Paragraph>();
         foreach (Paragraph paragraph in document.Paragraphs)
         {
