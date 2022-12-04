@@ -10,8 +10,8 @@ COPY "Gost.UnitTesting/API.UnitTesting.csproj" "Gost.UnitTesting/API.UnitTesting
 RUN dotnet restore "GOST.sln"
 
 # run tests
-RUN dotnet test
-ENTRYPOINT [ "dotnet", "test" ]
+# RUN dotnet test
+# ENTRYPOINT [ "dotnet", "test" ]
 
 # copy everything else and build
 COPY . .
