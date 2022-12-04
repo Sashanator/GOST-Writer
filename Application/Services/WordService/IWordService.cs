@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace Application.Services;
+namespace Application.Services.WordService.WordService;
 
 public interface IWordService
 {

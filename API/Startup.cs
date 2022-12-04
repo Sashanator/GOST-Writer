@@ -1,5 +1,5 @@
 using System.Reflection;
-using Application.Services;
+using Gost.Services;
 using MediatR;
 using Microsoft.OpenApi.Models;
 

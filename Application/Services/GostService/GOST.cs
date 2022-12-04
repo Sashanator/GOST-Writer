@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xceed.Document.NET;
 using Xceed.Words.NET;
 
-namespace Application.Tools
+namespace Application.Services.GostService
 {
     public class GOST
     {
@@ -32,7 +32,7 @@ namespace Application.Tools
         public GOST(DocX aDocument)
         {
             _document = aDocument;
-        }   
+        }
 
         public void ApllyGOST()
         {
@@ -48,7 +48,7 @@ namespace Application.Tools
             var res = new List<Paragraph>();
             foreach (Paragraph paragraph in _document.Paragraphs)
             {
-                if(paragraph.Text.ToLower().Contains("содержание"))
+                if (paragraph.Text.ToLower().Contains("содержание"))
                     isTitleEnded = true;
 
                 if (isTitleEnded)
@@ -80,7 +80,7 @@ namespace Application.Tools
 
         private void ApplyBasicSectionsProperies()
         {
-            foreach(var section in GetBasicParagraphs())
+            foreach (var section in GetBasicParagraphs())
             {
                 ApplyBasicParagraphsProperties(section);
             }
@@ -99,7 +99,7 @@ namespace Application.Tools
         private List<Paragraph> EmptyParagraphsSeries = new();
         private void ReplaceEmptyWithPageBreak()
         {
-            foreach(var paragraph in GetBasicParagraphs())
+            foreach (var paragraph in GetBasicParagraphs())
             {
                 if (IsSectionStart(paragraph))
                 {
@@ -116,7 +116,7 @@ namespace Application.Tools
                 else
                 {
                     EmptyParagraphsSeries.Add(paragraph);
-                }                    
+                }
             }
         }
 
@@ -130,7 +130,7 @@ namespace Application.Tools
             if (paragraph.PreviousParagraph is not null && IsSectionStart(paragraph))
             {
                 _document.RemoveParagraph(paragraph.PreviousParagraph);
-            }                
+            }
 
             paragraph.SetLineSpacing(LineSpacingType.Line, LineToPt(1.5f));
             paragraph.IndentationFirstLine = CmToPt(1.25f);

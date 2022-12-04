@@ -1,12 +1,17 @@
 ﻿using System.Reflection;
-using Application.Tools;
-using Microsoft.AspNetCore.Http;
+using Gost.Services.GostService;
 using Xceed.Words.NET;
 
-namespace Application.Services;
+namespace Gost.Services.WordService;
 
 public class WordService : IWordService
 {
+    private readonly IGostService _gostService;
+    public WordService(IGostService gostService)
+    {
+        _gostService = gostService;
+    }
+
     public Task<Stream> FormatWordDocument(IFormFile document, CancellationToken cancellationToken)
     {
         // Принять Word документ
@@ -15,8 +20,7 @@ public class WordService : IWordService
         var ms = new MemoryStream();
         document.CopyTo(ms);
         var wordDocument = DocX.Load(ms);
-        var gost = new GOST(wordDocument);
-        gost.ApllyGOST();
+        _gostService.ApplyGostSettings(wordDocument);
         var stream = GetDocumentStream(wordDocument);
         return Task.FromResult(stream);
     }

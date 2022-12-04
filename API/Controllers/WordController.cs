@@ -1,9 +1,9 @@
 ﻿using System.Net;
 using API.Extensions;
-using Application.Services;
+using Gost.Services.WordService;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers;
+namespace Gost.Controllers;
 
 [ApiController]
 [ProducesResponseType(typeof(ApiErrorResponse), (int)HttpStatusCode.BadRequest)]
