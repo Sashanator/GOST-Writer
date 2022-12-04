@@ -33,7 +33,7 @@ public class GostServiceUnitTests
         var result = _gostService.GetBasicParagraphs(_document);
 
         // Assert
-        Assert.AreEqual(200, result.Count);
+        Assert.AreEqual(201, result.Count);
     }
 
     [Test]
