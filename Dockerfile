@@ -9,14 +9,14 @@ COPY "Gost.UnitTesting/API.UnitTesting.csproj" "Gost.UnitTesting/API.UnitTesting
 
 RUN dotnet restore "GOST.sln"
 
-# run tests
-# RUN dotnet test
-# ENTRYPOINT [ "dotnet", "test" ]
-
 # copy everything else and build
 COPY . .
 WORKDIR /app
 RUN dotnet publish -c Release -o out
+
+# run tests
+RUN dotnet test
+ENTRYPOINT [ "dotnet", "test" ]
 
 # build a runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
