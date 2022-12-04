@@ -13,7 +13,7 @@ public class GostServiceUnitTests
     [SetUp]
     public void Setup()
     {
-        _document = DocX.Load(Environment.CurrentDirectory + @"\Resources\testIn.docx");
+        _document = DocX.Load(Directory.GetParent(Environment.CurrentDirectory)?.Parent?.Parent + @"\Resources\testIn.docx");
         _gostService = new GostService();
     }
 
@@ -33,7 +33,7 @@ public class GostServiceUnitTests
         var result = _gostService.GetBasicParagraphs(_document);
 
         // Assert
-        Assert.AreEqual(201, result.Count);
+        Assert.AreEqual(200, result.Count);
     }
 
     [Test]

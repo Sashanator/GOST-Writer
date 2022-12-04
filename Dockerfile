@@ -9,7 +9,11 @@ COPY "Gost.UnitTesting/API.UnitTesting.csproj" "Gost.UnitTesting/API.UnitTesting
 
 RUN dotnet restore "GOST.sln"
 
-# copy everything else build
+# run tests
+RUN dotnet test
+ENTRYPOINT [ "dotnet", "test" ]
+
+# copy everything else and build
 COPY . .
 WORKDIR /app
 RUN dotnet publish -c Release -o out
